@@ -15,12 +15,12 @@ jobs:
     - name: Build
       run: gcc ./src/main.c -o out
     - name: Package
-      run: tar jcf release.tar.bz ./out
+      run: tar jcf release.tar.bz2 ./out
 
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
         token: ${{ secrets.TOKEN_FOR_TEST }}
         name: ${{ github.ref }}
-        files: ./release.tar.bz
+        files: ./release.tar.bz2
         draft: false
