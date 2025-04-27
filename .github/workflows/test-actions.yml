@@ -28,11 +28,18 @@ jobs:
         df -h
         echo "$ ifconfig"
         ifconfig
-        echo "$ nv"
+        echo "$ env"
         env
         echo "$ id"
         id
 
+    - name: Docker test
+      run: |
+        docker pull busybox
+        docker run -it --name test1 busybox /bin/sh
+        ps aux
+        exit
+        docker pull ubuntu:14.04
         
     - uses: actions/checkout@v4
 
