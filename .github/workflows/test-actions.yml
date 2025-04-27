@@ -51,5 +51,6 @@ jobs:
         docker run -itd -v $(pwd):/home/runner/workspace/ --name test ubuntu_14.04-test:0.1
         
     - name: Test
-      run: ./out # TODO
+      run: |
+        while [ ! -f $(pwd)/status.txt ]; do sleep 1; done
       
