@@ -32,14 +32,13 @@ jobs:
         env
         echo "$ id"
         id
+        echo "$ ls -al"
+        ls -al
 
     - name: Docker test
       run: |
         docker pull busybox
-        docker run -it --name test1 busybox /bin/sh
-        ps aux
-        exit
-        docker pull ubuntu:14.04
+        docker images
         
     - uses: actions/checkout@v4
 
