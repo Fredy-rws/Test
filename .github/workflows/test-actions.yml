@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Person to greet'
+        description: 'Input test'
         required: true
-        default: 'World'
+        default: 'Hello'
 
 jobs:
   build:
@@ -16,6 +16,7 @@ jobs:
     steps:
     - name: Get env
       run: |
+        set -x
         uname -a
         cat /etc/issue
         lscpu
