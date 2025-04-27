@@ -18,11 +18,14 @@ jobs:
       run: |
         uname -a
         cat /etc/issue
-        cat /proc/cpuinfo
-        top -n1 -b
-        free
-        pwd
+        lscpu
+        free -h
         df -h
+        ifconfig
+        pwd
+        id
+        cd && pwd
+
         
     - uses: actions/checkout@v4
 
