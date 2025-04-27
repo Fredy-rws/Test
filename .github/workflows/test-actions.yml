@@ -1,4 +1,4 @@
-name: Mybuild-release tag
+name:Test actions
 
 on:
   workflow_dispatch:
