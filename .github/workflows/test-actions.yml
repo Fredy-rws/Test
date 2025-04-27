@@ -46,6 +46,7 @@ jobs:
         sed -i "s/userid/$(id -u)/g" ./run.sh
         sed -i "s/groupname/$(id -gn)/g" ./run.sh
         sed -i "s/groupid/$(id -g)/g" ./run.sh
+        chmod +x run.sh
         docker build -t ubuntu_14.04-test:0.1 .
         docker run -itd --name test ubuntu_14.04-test:0.1
         
