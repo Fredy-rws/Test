@@ -23,7 +23,7 @@ jobs:
         free -h
         df -h
         ifconfig
-        pwd
+        env
         id
         cd && pwd
 
