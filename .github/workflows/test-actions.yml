@@ -16,16 +16,22 @@ jobs:
     steps:
     - name: Get env
       run: |
-        set -x
+        echo "$ uname -a"
         uname -a
+        echo "$ cat /etc/issue"
         cat /etc/issue
+        echo "$ lscpu"
         lscpu
+        echo "$ free -h"
         free -h
+        echo "$ df -h"
         df -h
+        echo "$ ifconfig"
         ifconfig
+        echo "$ nv"
         env
+        echo "$ id"
         id
-        cd && pwd
 
         
     - uses: actions/checkout@v4
