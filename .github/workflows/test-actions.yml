@@ -34,17 +34,21 @@ jobs:
         id
         echo "$ ls -al"
         ls -al
-
-    - name: Docker test
-      run: |
-        docker pull busybox
-        docker images
         
     - uses: actions/checkout@v4
 
     - name: Build
       run: gcc ./src/main.c -o out
 
+    - name: Docker test
+      run: |
+        sed -i "s/username/$(id -un)/g" ./run.sh
+        sed -i "s/userid/$(id -u)/g" ./run.sh
+        sed -i "s/groupname/$(id -gn)/g" ./run.sh
+        sed -i "s/groupid/$(id -g)/g" ./run.sh
+        docker build -t ubuntu_14.04-test:0.1 .
+        docker run -itd --name test ubuntu_14.04-test:0.1
+        
     - name: Test
       run: ./out # TODO
       
